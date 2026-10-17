@@ -1,3 +1,11 @@
 {
-  "creativetab.anvil_repair_rework."
+  "creativetab.anvil_repair_rework.repair_rework_tab": "Repair Rework",
+
+  "item.anvil_repair_rework.wooden_repair_kit": "Wooden Repair Kit",
+  "item.anvil_repair_rework.stone_repair_kit": "Stone Repair Kit",
+  "item.anvil_repair_rework.copper_repair_kit": "Copper Repair Kit",
+  "item.anvil_repair_rework.iron_repair_kit": "Iron Repair Kit",
+  "item.anvil_repair_rework.golden_repair_kit": "Golden Repair Kit",
+  "item.anvil_repair_rework.diamond_repair_kit": "Diamond Repair Kit",
+  "item.anvil_repair_rework.netherite_repair_kit": "Netherite Repair Kit"
 }
