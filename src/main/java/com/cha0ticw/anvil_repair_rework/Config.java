@@ -1,4 +1,4 @@
-package com.cha0ticw.anvilrepair;
+package com.cha0ticw.anvil_repair_rework;
 
 import java.util.List;
 
