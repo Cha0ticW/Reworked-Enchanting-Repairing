@@ -1,4 +1,4 @@
-package com.cha0ticw.anvil_repair_rework;
+package com.cha0ticw.anvil_repair_rework.rework;
 
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.item.ItemStack;
@@ -14,9 +14,9 @@ public class EnchantRework {
 
     private static void onAnvilUpdate(AnvilUpdateEvent event) {
         ItemStack right = event.getRight();
-
+        //checks if the right input is empty, if yes it does nothing
         if (right.isEmpty()) return;
-
+        //checks if both inputs are enchanted, will block if yes
         if (hasEnchants(right) && hasEnchants(event.getLeft())) {
             event.setCanceled(true);
         }

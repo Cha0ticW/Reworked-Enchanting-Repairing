@@ -1,0 +1,11 @@
+{
+  "values": [
+    "anvil_repair_rework:wooden_repair_kit",
+    "anvil_repair_rework:stone_repair_kit",
+    "anvil_repair_rework:copper_repair_kit",
+    "anvil_repair_rework:iron_repair_kit",
+    "anvil_repair_rework:golden_repair_kit",
+    "anvil_repair_rework:diamond_repair_kit",
+    "anvil_repair_rework:netherite_repair_kit"
+  ]
+}
