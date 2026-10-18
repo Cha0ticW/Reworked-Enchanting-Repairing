@@ -1,5 +1,6 @@
 package com.cha0ticw.anvil_repair_rework.rework;
 
+import com.cha0ticw.anvil_repair_rework.Config;
 import com.cha0ticw.anvil_repair_rework.ModTags;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.bus.api.IEventBus;
@@ -10,17 +11,19 @@ public class RepairRework {
     public RepairRework(IEventBus modBus) { NeoForge.EVENT_BUS.addListener(RepairRework::onAnvilUpdate); }
 
     private static void onAnvilUpdate(AnvilUpdateEvent event) {
+        if (!Config.ENABLE_REPAIR_KITS.get()) return;
+
         ItemStack left = event.getLeft();
         ItemStack right = event.getRight();
         if (right.isEmpty()) return;
 
         boolean isKit = right.is(ModTags.Items.REPAIR_KITS);
-
+        //disable vanilla repair items
         if (!isKit && left.getItem().isValidRepairItem(left, right)) {
             event.setCanceled(true);
             return;
         }
-
+        //ignore items with full durability
         if (!left.isDamaged()) {
             event.setCanceled(true);
             return;

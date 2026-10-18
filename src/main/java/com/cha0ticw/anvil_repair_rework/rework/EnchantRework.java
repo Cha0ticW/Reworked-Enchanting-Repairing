@@ -1,5 +1,6 @@
 package com.cha0ticw.anvil_repair_rework.rework;
 
+import com.cha0ticw.anvil_repair_rework.Config;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.ItemEnchantments;
@@ -13,6 +14,8 @@ public class EnchantRework {
     }
 
     private static void onAnvilUpdate(AnvilUpdateEvent event) {
+        if (!Config.DISABLE_ANVIL_ENCHANTMENT_COMBINE.get()) return;
+
         ItemStack right = event.getRight();
         //checks if the right input is empty, if yes it does nothing
         if (right.isEmpty()) return;

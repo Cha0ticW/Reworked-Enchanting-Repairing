@@ -31,8 +31,6 @@ public class AnvilRepairReworkMod {
         NeoForge.EVENT_BUS.register(this);
 
         RepairKits.register(modEventBus);
-
-        modContainer.registerConfig(ModConfig.Type.COMMON, Config.COMMON_CONFIG);
     }
 
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> ANVIL_REPAIR_REWORK_TAB = CREATIVE_MODE_TABS.register("anvil_repair_rework_tab", () -> CreativeModeTab.builder()
