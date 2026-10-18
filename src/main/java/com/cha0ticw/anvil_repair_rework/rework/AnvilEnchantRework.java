@@ -8,9 +8,9 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.common.NeoForge;
 import net.neoforged.neoforge.event.AnvilUpdateEvent;
 
-public class EnchantRework {
-    public EnchantRework(IEventBus modBus) {
-        NeoForge.EVENT_BUS.addListener(EnchantRework::onAnvilUpdate);
+public class AnvilEnchantRework {
+    public AnvilEnchantRework(IEventBus modBus) {
+        NeoForge.EVENT_BUS.addListener(AnvilEnchantRework::onAnvilUpdate);
     }
 
     private static void onAnvilUpdate(AnvilUpdateEvent event) {
