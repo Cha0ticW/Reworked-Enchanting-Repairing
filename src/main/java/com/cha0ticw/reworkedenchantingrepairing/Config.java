@@ -1,4 +1,4 @@
-package com.cha0ticw.anvil_repair_rework;
+package com.cha0ticw.reworkedenchantingrepairing;
 
 import net.neoforged.neoforge.common.ModConfigSpec;
 
@@ -12,6 +12,7 @@ public class Config {
 
     public static final String CATEGORY_REPAIRING = "repairing";
     public static Supplier<Boolean> ENABLE_REPAIR_KITS;
+    public static Supplier<Integer> XP_COST_PER_KIT;
 
     public static final String CATEGORY_REPAIR_KITS = "repair_kits";
     public static Supplier<Integer> WOODEN_REPAIR_KIT_USES;
@@ -33,6 +34,8 @@ public class Config {
         COMMON_BUILDER.push(CATEGORY_REPAIRING);
         ENABLE_REPAIR_KITS = COMMON_BUILDER.comment("Makes repairing gear use repair kits instead of vanilla materials.")
                 .define("enable_repair_kits", true);
+        XP_COST_PER_KIT = COMMON_BUILDER.comment("XP levels charged per repair kit use.")
+                        .defineInRange("xp_cost_per_kit", 0, 0, 10);
 
         COMMON_BUILDER.push(CATEGORY_REPAIR_KITS);
         WOODEN_REPAIR_KIT_USES = COMMON_BUILDER.comment("How many uses the Wooden Repair Kit has.")

@@ -1,6 +1,6 @@
-package com.cha0ticw.anvil_repair_rework.rework;
+package com.cha0ticw.reworkedenchantingrepairing.rework;
 
-import com.cha0ticw.anvil_repair_rework.Config;
+import com.cha0ticw.reworkedenchantingrepairing.Config;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.ItemEnchantments;

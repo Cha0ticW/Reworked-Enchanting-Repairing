@@ -1,7 +1,7 @@
-package com.cha0ticw.anvil_repair_rework.item;
+package com.cha0ticw.reworkedenchantingrepairing.item;
 
-import com.cha0ticw.anvil_repair_rework.AnvilRepairReworkMod;
-import com.cha0ticw.anvil_repair_rework.Config;
+import com.cha0ticw.reworkedenchantingrepairing.ReworkedEnchantingRepairing;
+import com.cha0ticw.reworkedenchantingrepairing.Config;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -41,7 +41,7 @@ public class RepairKits extends Item {
     public ItemStack getMaterialStack() {
         return material.get();
     }
-    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(AnvilRepairReworkMod.MOD_ID);
+    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ReworkedEnchantingRepairing.MOD_ID);
 
     public static final DeferredItem<RepairKits> WOODEN_REPAIR_KIT = ITEMS.register("wooden_repair_kit",
             () -> new RepairKits(new Item.Properties().durability(1), () -> new ItemStack(Items.OAK_PLANKS)));
