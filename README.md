@@ -6,6 +6,6 @@ Minecraft mod that attempts to rework enchanting and repairing in order to make 
 
 It's based around these principles:
 - repairing should be cheap and convenient
-- enchanting shouldn't have to rely on RNG
+- enchanting shouldn't rely on RNG
 - both systems should fit in with the core gameplay loop
 - the player should have the ability to configure the system to their liking
