@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "anvil_repair_rework:item/wooden_repair_kit"
+  }
+}
