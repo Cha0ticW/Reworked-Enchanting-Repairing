@@ -21,19 +21,26 @@ public class RepairKits extends Item {
         this.material = material;
     }
 
+    //get kit uses from config
     private static void modifyDefault(ModifyDefaultComponentsEvent event) {
         event.modify(RepairKits.WOODEN_REPAIR_KIT.get(),
                 builder -> builder.set(DataComponents.MAX_DAMAGE, Config.WOODEN_REPAIR_KIT_USES.get()));
+        
         event.modify(RepairKits.STONE_REPAIR_KIT.get(),
                 builder -> builder.set(DataComponents.MAX_DAMAGE, Config.STONE_REPAIR_KIT_USES.get()));
+        
         event.modify(RepairKits.COPPER_REPAIR_KIT.get(),
                 builder -> builder.set(DataComponents.MAX_DAMAGE, Config.COPPER_REPAIR_KIT_USES.get()));
+        
         event.modify(RepairKits.IRON_REPAIR_KIT.get(),
                 builder -> builder.set(DataComponents.MAX_DAMAGE, Config.IRON_REPAIR_KIT_USES.get()));
+        
         event.modify(RepairKits.GOLDEN_REPAIR_KIT.get(),
                 builder -> builder.set(DataComponents.MAX_DAMAGE, Config.GOLDEN_REPAIR_KIT_USES.get()));
+        
         event.modify(RepairKits.DIAMOND_REPAIR_KIT.get(),
                 builder -> builder.set(DataComponents.MAX_DAMAGE, Config.DIAMOND_REPAIR_KIT_USES.get()));
+        
         event.modify(RepairKits.NETHERITE_REPAIR_KIT.get(),
                 builder -> builder.set(DataComponents.MAX_DAMAGE, Config.NETHERITE_REPAIR_KIT_USES.get()));
     }
@@ -42,21 +49,30 @@ public class RepairKits extends Item {
         return material.get();
     }
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ReworkedEnchantingRepairing.MOD_ID);
-
+    
+    //Vanilla and Vanilla Backport repair kits
     public static final DeferredItem<RepairKits> WOODEN_REPAIR_KIT = ITEMS.register("wooden_repair_kit",
             () -> new RepairKits(new Item.Properties().durability(1), () -> new ItemStack(Items.OAK_PLANKS)));
+    
     public static final DeferredItem<RepairKits> STONE_REPAIR_KIT = ITEMS.register("stone_repair_kit",
             () -> new RepairKits(new Item.Properties().durability(1), () -> new ItemStack(Items.COBBLESTONE)));
+    
     public static final DeferredItem<RepairKits> COPPER_REPAIR_KIT = ITEMS.register("copper_repair_kit",
             () -> new RepairKits(new Item.Properties().durability(1), () -> new ItemStack(Items.COPPER_INGOT)));
+    
     public static final DeferredItem<RepairKits> IRON_REPAIR_KIT = ITEMS.register("iron_repair_kit",
             () -> new RepairKits(new Item.Properties().durability(1), () -> new ItemStack(Items.IRON_INGOT)));
+    
     public static final DeferredItem<RepairKits> GOLDEN_REPAIR_KIT = ITEMS.register("golden_repair_kit",
             () -> new RepairKits(new Item.Properties().durability(1), () -> new ItemStack(Items.GOLD_INGOT)));
+    
     public static final DeferredItem<RepairKits> DIAMOND_REPAIR_KIT = ITEMS.register("diamond_repair_kit",
             () -> new RepairKits(new Item.Properties().durability(1), () -> new ItemStack(Items.DIAMOND)));
+    
     public static final DeferredItem<RepairKits> NETHERITE_REPAIR_KIT = ITEMS.register("netherite_repair_kit",
             () -> new RepairKits(new Item.Properties().durability(1), () -> new ItemStack(Items.NETHERITE_INGOT)));
+
+    //repair kits for other tagged materials
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
