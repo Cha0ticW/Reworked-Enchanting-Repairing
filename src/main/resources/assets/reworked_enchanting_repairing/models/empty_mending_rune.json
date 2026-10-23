@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "reworked_enchanting_repairing:item/empty_mending_rune"
+  }
+}

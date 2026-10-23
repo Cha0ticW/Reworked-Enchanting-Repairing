@@ -1,7 +1,7 @@
 package com.cha0ticw.reworkedenchantingrepairing.rework;
 
 import com.cha0ticw.reworkedenchantingrepairing.Config;
-import com.cha0ticw.reworkedenchantingrepairing.item.RepairKits;
+import com.cha0ticw.reworkedenchantingrepairing.item.MendingRuneItem;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Player;
@@ -40,16 +40,13 @@ public class RepairRework {
         ItemStack right = event.getRight();
         if (right.isEmpty() || !left.isDamageableItem()) return;
 
-        //check if repair item is a repair kit
-        if (!(right.getItem() instanceof RepairKits kit)) {
+        boolean isRune = right.is(MendingRuneItem.MENDING_RUNE.get());
+
+        //check if repair item is a mending rune
+        if (!isRune) {
             if (left.getItem().isValidRepairItem(left, right)) {
                 event.setCanceled(true);
             }
-            return;
-        }
-        //check if the kit is the right material
-        if (!left.getItem().isValidRepairItem(left, kit.getMaterialStack())) {
-            event.setCanceled(true);
             return;
         }
 
@@ -62,6 +59,7 @@ public class RepairRework {
         int needed = RepairRework.fullRepairCost(left);
         int used = RepairRework.usesRequired(left, right);
 
+        //rune has no durability
         if (used <= 0) {
             event.setCanceled(true);
             return;
@@ -84,23 +82,31 @@ public class RepairRework {
         event.setCost((long) used * Config.XP_COST_PER_KIT.get());
     }
 
-    //return damaged kit
+    //return damaged rune
     private static void onAnvilRepair(AnvilRepairEvent event) {
         Player player = event.getEntity();
         if (player.level().isClientSide) return;
 
         ItemStack left = event.getLeft();
         ItemStack right = event.getRight();
-        if (!(right.getItem() instanceof RepairKits)) return;
+        if (!(right.is(MendingRuneItem.MENDING_RUNE.get()))) return;
         if (!right.isDamageableItem()) return;
 
         int used = RepairRework.usesRequired(left, right);
 
-        ItemStack returned = right.copy();
-        returned.setCount(1);
-        returned.setDamageValue(right.getDamageValue() + used);
+        ItemStack returned;
+        int runeDamage = right.getDamageValue() + used;
 
-        if (returned.getDamageValue() >= returned.getMaxDamage()) {
+        if (runeDamage >= right.getMaxDamage()) {
+            //return Empty Mending Rune when used up
+            returned = new ItemStack(MendingRuneItem.EMPTY_MENDING_RUNE.get());
+        } else {
+            returned = right.copy();
+            returned.setCount(1);
+            returned.setDamageValue(runeDamage);
+        }
+
+        if (!player.getInventory().add(returned)) {
             player.drop(returned, false);
         }
     }

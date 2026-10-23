@@ -1,7 +1,7 @@
 package com.cha0ticw.reworkedenchantingrepairing;
 
 
-import com.cha0ticw.reworkedenchantingrepairing.item.RepairKits;
+import com.cha0ticw.reworkedenchantingrepairing.item.MendingRuneItem;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.CreativeModeTab;
 
@@ -30,23 +30,18 @@ public class ReworkedEnchantingRepairing {
 
         NeoForge.EVENT_BUS.register(this);
 
-        RepairKits.register(modEventBus);
+        MendingRuneItem.register(modEventBus);
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
-            event.accept(RepairKits.WOODEN_REPAIR_KIT);
-            event.accept(RepairKits.STONE_REPAIR_KIT);
-            event.accept(RepairKits.COPPER_REPAIR_KIT);
-            event.accept(RepairKits.IRON_REPAIR_KIT);
-            event.accept(RepairKits.GOLDEN_REPAIR_KIT);
-            event.accept(RepairKits.DIAMOND_REPAIR_KIT);
-            event.accept(RepairKits.NETHERITE_REPAIR_KIT);
+            event.accept(MendingRuneItem.EMPTY_MENDING_RUNE);
+            event.accept(MendingRuneItem.MENDING_RUNE);
         }
     }
 
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
-        LOGGER.info("Reworked Enchanting & Repairing is starting");
+        LOGGER.info("Reworked Enchanting & Repairing is starting!");
     }
 }
