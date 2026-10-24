@@ -1,7 +1,8 @@
 package com.cha0ticw.reworkedenchantingrepairing;
 
 
-import com.cha0ticw.reworkedenchantingrepairing.item.MendingRuneItem;
+import com.cha0ticw.reworkedenchantingrepairing.registry.ModItems;
+import com.cha0ticw.reworkedenchantingrepairing.registry.ModMenuTypes;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.CreativeModeTab;
 
@@ -30,13 +31,14 @@ public class ReworkedEnchantingRepairing {
 
         NeoForge.EVENT_BUS.register(this);
 
-        MendingRuneItem.register(modEventBus);
+        ModItems.ITEMS.register(modEventBus);
+        ModMenuTypes.MENU_TYPE.register(modEventBus);
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
-            event.accept(MendingRuneItem.EMPTY_MENDING_RUNE);
-            event.accept(MendingRuneItem.MENDING_RUNE);
+            event.accept(ModItems.EMPTY_MENDING_RUNE);
+            event.accept(ModItems.MENDING_RUNE);
         }
     }
 

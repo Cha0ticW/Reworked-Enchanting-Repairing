@@ -1,7 +1,7 @@
 package com.cha0ticw.reworkedenchantingrepairing.rework;
 
 import com.cha0ticw.reworkedenchantingrepairing.Config;
-import com.cha0ticw.reworkedenchantingrepairing.item.MendingRuneItem;
+import com.cha0ticw.reworkedenchantingrepairing.registry.ModItems;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Player;
@@ -40,7 +40,7 @@ public class RepairRework {
         ItemStack right = event.getRight();
         if (right.isEmpty() || !left.isDamageableItem()) return;
 
-        boolean isRune = right.is(MendingRuneItem.MENDING_RUNE.get());
+        boolean isRune = right.is(ModItems.MENDING_RUNE.get());
 
         //check if repair item is a mending rune
         if (!isRune) {
@@ -89,7 +89,7 @@ public class RepairRework {
 
         ItemStack left = event.getLeft();
         ItemStack right = event.getRight();
-        if (!(right.is(MendingRuneItem.MENDING_RUNE.get()))) return;
+        if (!(right.is(ModItems.MENDING_RUNE.get()))) return;
         if (!right.isDamageableItem()) return;
 
         int used = RepairRework.usesRequired(left, right);
@@ -99,7 +99,7 @@ public class RepairRework {
 
         if (runeDamage >= right.getMaxDamage()) {
             //return Empty Mending Rune when used up
-            returned = new ItemStack(MendingRuneItem.EMPTY_MENDING_RUNE.get());
+            returned = new ItemStack(ModItems.EMPTY_MENDING_RUNE.get());
         } else {
             returned = right.copy();
             returned.setCount(1);
