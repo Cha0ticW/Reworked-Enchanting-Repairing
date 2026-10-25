@@ -34,7 +34,7 @@ public class RepairRework {
     }
 
     private static void onAnvilUpdate(AnvilUpdateEvent event) {
-        if (!Config.ENABLE_REPAIR_KITS.get()) return;
+        if (!Config.ENABLE_MENDING_RUNE.get()) return;
 
         ItemStack left = event.getLeft();
         ItemStack right = event.getRight();

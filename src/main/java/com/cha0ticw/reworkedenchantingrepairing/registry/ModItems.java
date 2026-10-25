@@ -14,7 +14,7 @@ public class ModItems extends Item {
         super(props);
     }
 
-    private static void modifyDefault(ModifyDefaultComponentsEvent event) {
+    public static void modifyDefault(ModifyDefaultComponentsEvent event) {
         event.modify(ModItems.MENDING_RUNE.get(),
                 builder -> builder.set(DataComponents.MAX_DAMAGE, Config.MENDING_RUNE_USES.get()));
     }

@@ -3,6 +3,8 @@ package com.cha0ticw.reworkedenchantingrepairing;
 
 import com.cha0ticw.reworkedenchantingrepairing.registry.ModItems;
 import com.cha0ticw.reworkedenchantingrepairing.registry.ModMenuTypes;
+import com.cha0ticw.reworkedenchantingrepairing.rework.AnvilEnchantRework;
+import com.cha0ticw.reworkedenchantingrepairing.rework.RepairRework;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.CreativeModeTab;
 
@@ -17,7 +19,8 @@ import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import org.apache.logging.log4j.LogManager;
-import java.util.logging.Logger;
+import org.apache.logging.log4j.Logger;
+
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(ReworkedEnchantingRepairing.MOD_ID)
@@ -33,6 +36,12 @@ public class ReworkedEnchantingRepairing {
 
         ModItems.ITEMS.register(modEventBus);
         ModMenuTypes.MENU_TYPE.register(modEventBus);
+
+        modEventBus.addListener(this::addCreative);
+        modEventBus.addListener(ModItems::modifyDefault);
+
+        new RepairRework(modEventBus);
+        new AnvilEnchantRework(modEventBus);
     }
 
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
