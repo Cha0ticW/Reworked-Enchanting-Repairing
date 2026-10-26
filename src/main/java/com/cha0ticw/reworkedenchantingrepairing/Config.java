@@ -13,7 +13,7 @@ public class Config {
     public static final String CATEGORY_REPAIRING = "repairing";
     public static Supplier<Boolean> ENABLE_MENDING_RUNE;
     public static Supplier<Integer> MENDING_RUNE_USES;
-    public static Supplier<Integer> XP_COST_PER_KIT;
+    public static Supplier<Integer> XP_COST_PER_REPAIR_ITEM;
 
     static {
         ModConfigSpec.Builder COMMON_BUILDER = new ModConfigSpec.Builder();
@@ -26,10 +26,10 @@ public class Config {
         COMMON_BUILDER.push(CATEGORY_REPAIRING);
         ENABLE_MENDING_RUNE = COMMON_BUILDER.comment("Makes repairing gear use the Mending Rune instead of vanilla materials.")
                 .define("enable_repair_kits", true);
+        XP_COST_PER_REPAIR_ITEM = COMMON_BUILDER.comment("XP levels charged per repair item use. If you set this to 10, a tool with less than 33% durability will cost 30 levels, since the repair item is used 3 times.")
+                        .defineInRange("xp_cost_per_kit", 0, 0, 10);
         MENDING_RUNE_USES = COMMON_BUILDER.comment("How many uses the Mending Rune has.")
                 .defineInRange("mending_rune_uses", 30, 1, 1000);
-        XP_COST_PER_KIT = COMMON_BUILDER.comment("XP levels charged per Mending Rune use. If you set this to 10, a tool with less than 33% durability will cost 30 levels, since the Mending Rune is used 3 times.")
-                        .defineInRange("xp_cost_per_kit", 0, 0, 10);
         COMMON_BUILDER.pop();
 
         COMMON_CONFIG = COMMON_BUILDER.build();
