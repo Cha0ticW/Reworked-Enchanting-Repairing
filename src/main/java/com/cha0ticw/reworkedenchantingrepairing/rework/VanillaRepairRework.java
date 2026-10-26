@@ -50,5 +50,5 @@ public class VanillaRepairRework {
 
         event.setOutput(out);
         event.setMaterialCost(used);
-        event.setCost((long) used * Config.XP_COST_PER_KIT.get());
+        event.setCost((long) used * Config.XP_COST_PER_REPAIR_ITEM.get());
     }
