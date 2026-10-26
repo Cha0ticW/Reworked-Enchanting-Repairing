@@ -9,3 +9,5 @@ It's based around these principles:
 - enchanting shouldn't rely on RNG
 - both systems should fit in with the core gameplay loop
 - the player should have the ability to configure the system to their liking
+
+**This repo is no longer maintained. For the up-to-date code, visit the repository on [Codeberg](https://codeberg.org/Cha0ticW/Reworked-Enchanting-Repairing) instead.**
